@@ -18,7 +18,16 @@ const App = () => {
       top : "0px",
     })
   };
-  const renderChoice = () => {setRenderBall(true)};
+   
+  const checkRender = () =>{setRenderBall(true)};
+
+  const renderChoice = () => {
+    if(renderBall===true){
+      return <div className="ball" style={ballPosition}></div> 
+    }else{
+      return <button className="start" onClick={checkRender}>Start</button>
+    }
+  };
    
   const moveBall = (evt) => {
     if(renderBall===true){
@@ -69,8 +78,7 @@ const App = () => {
       <button onClick={reset} className="reset">
         Reset
       </button>
-      {/* {renderChoice()} */}
-      {renderBall? <div className="ball" style={ballPosition}></div> : <button className="start" onClick={renderChoice}>Start</button>}
+      {renderChoice()}
     </div>
   );
 };
