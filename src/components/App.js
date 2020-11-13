@@ -23,14 +23,15 @@ const App = () => {
   const moveBall = (evt) => {
     if(renderBall===true){
       if(evt.key === "ArrowUp"){
-        y+=5;
+        y-=5;
         setY(y);
         setBallPosition({
           ...ballPosition,
           top: y+"px",
-          left: x+"px"});
+          left: x+"px"
+        });   
       }else if(evt.key === "ArrowDown"){
-        y-=5;
+        y+=5;
         setY(y);
         setBallPosition({
           ...ballPosition,
