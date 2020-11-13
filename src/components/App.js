@@ -71,7 +71,7 @@ const App = () => {
       window.removeEventListener('keydown', moveBall);
     };
   });
-  // addEventListener('keydown', moveBall)
+  
   return (
     <div className="playground">
       
