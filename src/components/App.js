@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import "../styles/App.css";
 
 const App = () => {
+  // const [myevt, setEvt] = useState(false);
   const [renderBall, setRenderBall] = useState(false);
   let [x, setX] = useState(0);
   let [y, setY] = useState(0);
@@ -10,6 +11,7 @@ const App = () => {
     top: "0px",
   });
   const reset = () => {
+    // setEvt(false),
     setRenderBall(false), 
     setX(0), 
     setY(0),
@@ -32,40 +34,48 @@ const App = () => {
   const moveBall = (evt) => {
     if(renderBall===true){
       if(evt.key === "ArrowUp"){
-        y-=5;
-        setY(y);
+        // yVal=5;
+        // y-=5;
+        setY(y-5);
         setBallPosition({
-          ...ballPosition,
+          // ...ballPosition,
           top: y+"px",
           left: x+"px"
         });   
       }else if(evt.key === "ArrowDown"){
-        y+=5;
-        setY(y);
+        // y+=5;
+        setY(y+5);
         setBallPosition({
-          ...ballPosition,
+          // ...ballPosition,
           top: y+"px",
           left: x+"px"});
       }else if(evt.key === "ArrowLeft"){
-        x-=5;
-        setX(x);
+        // x-=5;
+        setX(x-5);
         setBallPosition({
-          ...ballPosition,
+          // ...ballPosition,
           top: y+"px",
           left: x+"px"});
       }else if(evt.key === "ArrowRight"){
-        x+=5;
-        setX(x);
+        // x+=5;
+        setX(x+5);
         setBallPosition({
-          ...ballPosition,
+          // ...ballPosition,
           top: y+"px",
           left: x+"px"});
       }
     }
   }
 
+  // if(myevt===false){
+  //   window.addEventListener('keydown', moveBall);
+  //   // console.log("hello");
+  //   setEvt(true);
+  // }
   useEffect(() => {
     window.addEventListener('keydown', moveBall);
+    console.log(x);
+    console.log(y);
 
     return () => {
       window.removeEventListener('keydown', moveBall);
